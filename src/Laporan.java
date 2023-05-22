@@ -14,9 +14,9 @@ public class Laporan {
     
     public void Laporan(Buku Buku){
         System.out.println("--- List Buku ---");
-        System.out.println("ID \t Judul \t\t Stok");
+        System.out.println("ID\tJudul\t\tStok");
         for (int i = 0; i < Buku.getJumlahBuku(); i++) {
-            System.out.println(Buku.getIdBuku(i) + " \t " + Buku.getNamaBuku(i) + " \t\t " + Buku.getStok(i));
+            System.out.println(Buku.getIdBuku(i) + "\t" + Buku.getNamaBuku(i) + "\t\t" + Buku.getStok(i));
         }
         
     }

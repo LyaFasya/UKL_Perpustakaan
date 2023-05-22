@@ -1,12 +1,12 @@
-
 import java.util.ArrayList;
+
 public class Siswa implements User{
     
     private ArrayList<Integer> idSiswa = new ArrayList<Integer>();
     private ArrayList<String> namaSiswa = new ArrayList<String>();
     private ArrayList<String> alamat = new ArrayList<String>();
     private ArrayList<String> telepon = new ArrayList<String>();
-    private ArrayList<Boolean> status = new ArrayList<Boolean>();
+    private ArrayList<Boolean> status = new ArrayList<Boolean>(); // true = blom pinjam | false = udah pinjem
     private ArrayList<Integer> pinjamanBuku = new ArrayList<Integer>();
     
     public void Siswa (){
@@ -25,7 +25,7 @@ public class Siswa implements User{
         this.pinjamanBuku.add (0);
         
         this.idSiswa.add (2);
-        this.namaSiswa.add ("Javier");
+        this.namaSiswa.add ("Agus");
         this.alamat.add ("Tuban");
         this.telepon.add ("085161118789");
         this.status.add (true);
