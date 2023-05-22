@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ public class Peminjaman {
 
     ArrayList<Integer> idBukuTemp = new ArrayList<Integer>();
     ArrayList<Integer> banyakTemp = new ArrayList<Integer>();
-    
+
     public Peminjaman() {
         this.idSiswa.add(0);
         this.idBuku.add(0);
@@ -33,10 +34,8 @@ public class Peminjaman {
         String cek = "";
 
         System.out.println("Silahkan Meminjam Buku");
-        
-        if (running.idSiswa >= siswa.getJumlahSiswa() && running.idSiswa >= 0) {
-            System.out.println("ID tidak ditemukan");
-        } else if (siswa.isStatus(running.idSiswa) == false) {
+
+        if (siswa.isStatus(running.idSiswa) == false) {
             System.out.println("Halo " + siswa.getNama(running.idSiswa) + "!");
             System.out.println("Status anda sudah meminjam buku, silakan untuk mengembalikan terlebih dahulu");
         } else {
@@ -45,28 +44,32 @@ public class Peminjaman {
             int temp = 0;
             do {
                 cek = "";
-                System.out.print("Masukkan ID buku : ");
-                temp = myOBJ.nextInt();
-                if (temp > 4) {
-                    System.out.println("Mohon masukkan ID Buku dengan benar!!!!");
-                } else {
-                    idBukuTemp.add(temp);
-                    menu.setIdBuku(temp);
 
-                    System.out.print(buku.getNamaBuku(temp) + " sebanyak : ");
-                    banyaka = myOBJ.nextInt();
-                    banyakTemp.add(banyaka);
-                    menu.setBanyak(banyaka);
-                    if (banyaka > buku.getStok(i)) {
-                        System.out.println("Mohon maaf stok buku tidak menyapai " + banyaka);
-                    } else {
-                        System.out.print("\nApakah ingin meminjam lagi? (Y/N) ");
-                        cek = myOBJ.next();
+                do {
+                    System.out.print("Masukkan ID buku : ");
+                    temp = myOBJ.nextInt();
+
+                    if (temp > 4 || temp < 0) {
+                        System.out.println("Mohon masukkan ID Buku dengan benar!!!!\n");
                     }
+                } while (temp > 4 || temp < 0);
+
+                idBukuTemp.add(temp);
+                menu.setIdBuku(temp);
+
+                System.out.print(buku.getNamaBuku(temp) + " sebanyak : ");
+                banyaka = myOBJ.nextInt();
+                banyakTemp.add(banyaka);
+                menu.setBanyak(banyaka);
+                if (banyaka > buku.getStok(i)) {
+                    System.out.println("Mohon maaf stok buku tidak menyapai " + banyaka);
+                } else {
+                    System.out.print("\nApakah ingin meminjam lagi? (Y/N) ");
+                    cek = myOBJ.next();
                     i++;
                 }
             } while (cek.equalsIgnoreCase("Y"));
-            
+
             if (temp > 4 || banyaka > buku.getStok(i)) {
                 System.out.println("Lakukan kembali dengan baik");
             } else if (!siswa.isStatus(running.idSiswa)) {
@@ -89,7 +92,7 @@ public class Peminjaman {
             }
         }
     }
-    
+
     public void setPeminjaman(Buku buku, int idSiswa, int idBuku, int banyaknya) {
         this.idSiswa.add(idSiswa);
         this.idBuku.add(idBuku);
@@ -112,7 +115,7 @@ public class Peminjaman {
     public int getJumlahPeminjaman() {
         return this.idSiswa.size();
     }
-    
+
     public int getIdBukuTemp(int a) {
         return this.idBukuTemp.get(a);
     }

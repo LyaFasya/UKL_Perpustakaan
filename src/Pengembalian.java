@@ -43,8 +43,6 @@ public class Pengembalian extends Peminjaman {
         
         if (siswa.isStatus(running.idSiswa) == true) {
             System.out.println("Status anda belum meminjam buku, silakan untuk meminjam terlebih dahulu");
-        } else if (running.idSiswa >= siswa.getJumlahSiswa() && running.idSiswa >= 0) {
-            System.out.println("ID tidak ditemukan");
         } else {
             int limit;
             int i = 0;
