@@ -59,12 +59,11 @@ public class Menu {
 
             } else if (menu == 5) {
                 stay = false;
-                System.out.println("Terima Kasih " + Siswa.getNama(running.idSiswa) + " Sudah Datang di Perpustakaan :D\nSee You Next Time!!!");
+                System.out.println("Terima Kasih " + Siswa.getNama(running.idSiswa) + " Sudah Datang di Perpustakaan :D");
             } else {
                 System.out.println("Pilih menu dengan benar");
             }
         }
-
     }
 
     public void setBanyak(int a) {
@@ -89,5 +88,9 @@ public class Menu {
 
     public int getJmlBuku() {
         return idBuku.size();
+    }
+    
+    public void setTrue() {
+        stay = true;
     }
 }
