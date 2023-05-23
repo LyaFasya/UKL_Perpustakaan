@@ -20,17 +20,17 @@ public class Buku {
         
         this.idBuku.add(2);
         this.namaBuku.add("Matahari");
-        this.stok.add(7);
+        this.stok.add(5);
         this.harga.add(20000);
         
         this.idBuku.add(3);
         this.namaBuku.add("Bintang");
-        this.stok.add(8);
+        this.stok.add(6);
         this.harga.add(25000);
         
         this.idBuku.add(4);
         this.namaBuku.add("Ceros");
-        this.stok.add(9);
+        this.stok.add(5);
         this.harga.add(30000);
     }
     

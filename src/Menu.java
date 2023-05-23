@@ -11,7 +11,7 @@ public class Menu {
     boolean stay = true;
     Scanner set = new Scanner(System.in);
 
-    public void Peminjaman(Menu Menu, Siswa Siswa, Buku Buku, Peminjaman Peminjaman, Pengembalian Pengembalian, running run) {
+    public void Operator(Menu Menu, Siswa Siswa, Buku Buku, Peminjaman Peminjaman, Pengembalian Pengembalian, running run) {
 
         Siswa student = new Siswa();
         Buku book = new Buku();

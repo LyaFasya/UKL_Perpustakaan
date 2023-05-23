@@ -32,6 +32,11 @@ public class Pengembalian extends Peminjaman {
         this.idBuku.add(2);
         this.banyak.add(2);
         this.pinjamanBuku.add(3);
+        
+        this.idSiswa.add(2);
+        this.idBuku.add(1);
+        this.banyak.add(0);
+        this.pinjamanBuku.add(3);
 
     }
 
@@ -44,8 +49,6 @@ public class Pengembalian extends Peminjaman {
         if (siswa.isStatus(running.idSiswa) == true) {
             System.out.println("Status anda belum meminjam buku, silakan untuk meminjam terlebih dahulu");
         } else {
-            int limit;
-            int i = 0;
             int temp = 0;
             String cek;
 
@@ -72,7 +75,7 @@ public class Pengembalian extends Peminjaman {
                     for (int j = 0; j < x; j++) {
                         int jumlah = menu.getbanyak(j) * buku.getHarga(menu.getIdBuku(j));
                         total += jumlah;
-                        System.out.println(buku.getNamaBuku(menu.getIdBuku(j)) + "\t" + menu.getbanyak(j) + "\t" + buku.getHarga(menu.getIdBuku(j)) + "\t" + jumlah);
+                        System.out.println(buku.getNamaBuku(menu.getIdBuku(j)) + "\t\t" + menu.getbanyak(j) + "\t" + buku.getHarga(menu.getIdBuku(j)) + "\t" + jumlah);
                         pengembalian.setPengembalian(buku, running.idSiswa, menu.getIdBuku(j), menu.getbanyak(j));
                     }
                     System.out.println("Total Harga Pengembalian : " + total);
@@ -84,6 +87,9 @@ public class Pengembalian extends Peminjaman {
             } else if (cek.equalsIgnoreCase("N")) {
                 System.out.println("KALO MISAL BELUM SELESAI PINJAM, NGAPAIN MASUK MENU PENGEMBALIAN!!!!!!");
 
+            }
+            else{
+                System.out.println("Tidak ada opsi tersebut!");
             }
         }
     }

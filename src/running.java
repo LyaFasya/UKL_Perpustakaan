@@ -40,7 +40,7 @@ public class running {
                 }
             } while (idSiswa >= student.getJumlahSiswa());
 
-            menu.Peminjaman(menu, student, book, rent, repay, run);
+            menu.Operator(menu, student, book, rent, repay, run);
             
             System.out.print("Mau masuk dengan ID Siswa yang lain? (Y/N) > ");
             cek = i.next();

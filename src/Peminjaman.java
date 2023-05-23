@@ -13,7 +13,7 @@ public class Peminjaman {
 
     public Peminjaman() {
         this.idSiswa.add(0);
-        this.idBuku.add(0);
+        this.idBuku.add(2);
         this.banyak.add(2);
 
         this.idSiswa.add(0);
@@ -21,11 +21,15 @@ public class Peminjaman {
         this.banyak.add(3);
 
         this.idSiswa.add(1);
-        this.idBuku.add(0);
+        this.idBuku.add(2);
         this.banyak.add(1);
 
         this.idSiswa.add(1);
         this.idBuku.add(2);
+        this.banyak.add(2);
+        
+        this.idSiswa.add(1);
+        this.idBuku.add(3);
         this.banyak.add(2);
     }
 
@@ -37,7 +41,7 @@ public class Peminjaman {
 
         if (siswa.isStatus(running.idSiswa) == false) {
             System.out.println("Halo " + siswa.getNama(running.idSiswa) + "!");
-            System.out.println("Status anda sudah meminjam buku, silakan untuk mengembalikan terlebih dahulu");
+            System.out.println("Status anda tidak diizinkan untuk meminjam, silakan hubungi pusat");
         } else {
             int banyaka = 0;
             int i = 0;
@@ -66,6 +70,7 @@ public class Peminjaman {
                 } else {
                     System.out.print("\nApakah ingin meminjam lagi? (Y/N) ");
                     cek = myOBJ.next();
+                    
                     i++;
                 }
             } while (cek.equalsIgnoreCase("Y"));
@@ -74,8 +79,10 @@ public class Peminjaman {
                 System.out.println("Lakukan kembali dengan baik");
             } else if (!siswa.isStatus(running.idSiswa)) {
                 System.out.println("Tidak bisa meminjam");
-            } else {
-                System.out.println("Transaksi belanja " + siswa.getNama(running.idSiswa) + " sebagai berikut");
+                
+            
+            } else{
+                    System.out.println("Transaksi belanja " + siswa.getNama(running.idSiswa) + " sebagai berikut");
                 System.out.println("Nama Buku \tQty \tHarga \tJumlah \t");
                 int total = 0;
                 int x = idBukuTemp.size();
@@ -89,7 +96,8 @@ public class Peminjaman {
                 System.out.println("Total Harga Peminjaman : " + total);
 
                 siswa.editStatus(running.idSiswa, !siswa.isStatus(running.idSiswa));
-            }
+            
+        }
         }
     }
 

@@ -19,6 +19,7 @@ public class Petugas implements User{
         this.telepon.add("08887183242");
     }
     
+    @Override
     public String getNama (int idPetugas){
         return this.namaPetugas.get(idPetugas);
     }
