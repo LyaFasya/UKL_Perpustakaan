@@ -65,6 +65,10 @@ public class Peminjaman {
 
                     if (banyaka > buku.getStok(temp)) {
                         System.out.println("Mohon maaf stok buku tidak menyapai " + banyaka);
+                        System.out.print("\nApakah ingin meminjam lagi? (Y/N) ");
+                        cek = myOBJ.next();
+                        
+                        banyaka = 0;
                     } else {
                         buku.editStok(temp, (buku.getStok(temp) - banyaka));
                         idBukuTemp.add(temp);
@@ -76,8 +80,8 @@ public class Peminjaman {
                         cek = myOBJ.next();
                         i++;
                     }
-                } while (banyaka >= buku.getStok(temp));
-            } while (cek.equalsIgnoreCase("Y"));
+                } while (banyaka > buku.getStok(temp));
+            } while (cek.equalsIgnoreCase("y"));
 
             if (temp > 4 || banyaka > buku.getStok(i)) {
                 System.out.println("Lakukan kembali dengan baik");
