@@ -50,29 +50,33 @@ public class Peminjaman {
                 cek = "";
 
                 do {
-                    System.out.print("Masukkan ID buku : ");
-                    temp = myOBJ.nextInt();
+                    do {
+                        System.out.print("Masukkan ID buku : ");
+                        temp = myOBJ.nextInt();
 
-                    if (temp > 4 || temp < 0) {
-                        System.out.println("Mohon masukkan ID Buku dengan benar!!!!\n");
+                        if (temp > 4 || temp < 0) {
+                            System.out.println("Mohon masukkan ID Buku dengan benar!!!!\n");
+                        }
+                    } while (temp > 4 || temp < 0);
+
+
+                    System.out.print(buku.getNamaBuku(temp) + " sebanyak : ");
+                    banyaka = myOBJ.nextInt();
+
+                    if (banyaka > buku.getStok(temp)) {
+                        System.out.println("Mohon maaf stok buku tidak menyapai " + banyaka);
+                    } else {
+                        buku.editStok(temp, (buku.getStok(temp) - banyaka));
+                        idBukuTemp.add(temp);
+                        menu.setIdBuku(temp);
+                        banyakTemp.add(banyaka);
+                        menu.setBanyak(banyaka);
+                        
+                        System.out.print("\nApakah ingin meminjam lagi? (Y/N) ");
+                        cek = myOBJ.next();
+                        i++;
                     }
-                } while (temp > 4 || temp < 0);
-
-                idBukuTemp.add(temp);
-                menu.setIdBuku(temp);
-
-                System.out.print(buku.getNamaBuku(temp) + " sebanyak : ");
-                banyaka = myOBJ.nextInt();
-                banyakTemp.add(banyaka);
-                menu.setBanyak(banyaka);
-                if (banyaka > buku.getStok(i)) {
-                    System.out.println("Mohon maaf stok buku tidak menyapai " + banyaka);
-                } else {
-                    System.out.print("\nApakah ingin meminjam lagi? (Y/N) ");
-                    cek = myOBJ.next();
-                    
-                    i++;
-                }
+                } while (banyaka >= buku.getStok(temp));
             } while (cek.equalsIgnoreCase("Y"));
 
             if (temp > 4 || banyaka > buku.getStok(i)) {
